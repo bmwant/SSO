@@ -63,6 +63,12 @@
     <Compile Include="CameraSelection.Designer.cs">
       <DependentUpon>CameraSelection.cs</DependentUpon>
     </Compile>
+    <Compile Include="COMSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="COMSelection.Designer.cs">
+      <DependentUpon>COMSelection.cs</DependentUpon>
+    </Compile>
     <Compile Include="Config.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -94,6 +100,9 @@
     <Compile Include="Structures.cs" />
     <EmbeddedResource Include="CameraSelection.resx">
       <DependentUpon>CameraSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="COMSelection.resx">
+      <DependentUpon>COMSelection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -137,6 +146,7 @@
     <Content Include="opencv_imgproc231.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\camera.png" />
     <None Include="Resources\solve.png" />
     <None Include="Resources\recognize.png" />
     <None Include="Resources\upload.png" />

@@ -11,10 +11,10 @@ namespace SudoSolO
     class Manipulator
     {
         SerialPort port;
-        public Manipulator()
+        public Manipulator(string portName)
         {
             //add com-port selection menu
-            port = new SerialPort("COM3", 9600);
+            port = new SerialPort(portName, 9600);
             port.Open();
         }
 

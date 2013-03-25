@@ -33,15 +33,15 @@ namespace SudoSolO
         {
             InitializeComponent();
             boardSize = 6;
-            manipulator = new Manipulator();
             tempMatrix = new int[boardSize, boardSize];
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            trackBar1.Value = Config.MinGray;
             //turn on the lights
             FlashLighter.RunWorkerAsync();
+
+            //select camera to get real-time image from phone display
             CameraSelection cselect = new CameraSelection();
             DialogResult dresult = cselect.ShowDialog();
             if (dresult == DialogResult.OK)
@@ -61,6 +61,18 @@ namespace SudoSolO
             {
                 this.Close();
             }
+
+            //select COM-port for phone manipulation
+            COMSelection cmselect = new COMSelection();
+            dresult = cmselect.ShowDialog();
+            if (dresult == DialogResult.OK)
+            {
+                manipulator = new Manipulator(cmselect.portName);
+            }
+            else
+            {
+                this.Close();
+            }
         }
 
         private void getStreamVideoFromWebCam()
@@ -75,7 +87,7 @@ namespace SudoSolO
         private void button1_Click(object sender, EventArgs e)
         {
             bmpPicture = imageReceiver.GetImage();
-            pictureBox2.Image = bmpPicture;
+            pictureBox2.Visible = true;
             bmpPicture.Save("c:/file.bmp");
             button2.Enabled = true;
             pictureBox1.Visible = false;
@@ -199,15 +211,6 @@ namespace SudoSolO
             //prg.ShowDialog();
         }
 
-        private void trackBar1_Scroll(object sender, EventArgs e)
-        {
-            textBox1.Text = trackBar1.Value.ToString();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void button11_Click(object sender, EventArgs e)
         {
