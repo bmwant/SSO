@@ -9,6 +9,7 @@ namespace SudoSolO
         private int size;
         private FlyweightFactoryMatrix Factory = new FlyweightFactoryMatrix();
         private FlyweightMatrix field;
+        private SolvingStrategy solver;
         
 
         //creates a solver from a two-dimensional array
@@ -33,17 +34,17 @@ namespace SudoSolO
         public bool Solve()
         {
             //open digits method
-            OpenDigitsEngine engine1 = new OpenDigitsEngine((Matrix)field);
-            engine1.Start();
+            solver = new OpenDigitsAlgorithm();
+            solver.SolvingAlgorithm((Matrix)field);            
             if (correctSolution())
             {
                 return true;
             }
             //hidden digits method
-
+            
             //backtracking method
-            BacktrackingEngine engine3 = new BacktrackingEngine((Matrix)field);
-            engine3.Start();
+            solver = new BacktrackingAlgorithm();
+            solver.SolvingAlgorithm((Matrix)field);
             if (correctSolution())
             {
                 return true;
