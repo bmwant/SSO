@@ -48,7 +48,7 @@ namespace SudoSolO
             {
                 try
                 {
-                    imageReceiver = new ImageReceiver(cselect.camNumber);
+                    imageReceiver = ImageReceiver.GetInstanceOnCamNumber(cselect.camNumber);
                 }
                 catch (NullReferenceException exception)
                 {
