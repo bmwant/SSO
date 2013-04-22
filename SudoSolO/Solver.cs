@@ -7,7 +7,8 @@ namespace SudoSolO
     class Solver
     {
         private int size;
-        private Matrix field;
+        private FlyweightFactoryMatrix Factory = new FlyweightFactoryMatrix();
+        private FlyweightMatrix field;
         
 
         //creates a solver from a two-dimensional array
@@ -18,7 +19,8 @@ namespace SudoSolO
                 throw new Exception("Not squared matrix");
             }
             size = matrix.GetLength(0);
-            field = new Matrix(size, matrix);
+            field = Factory.GetFlyweight(size.ToString());
+            field.SetField(matrix);
             
         }
 
@@ -31,7 +33,7 @@ namespace SudoSolO
         public bool Solve()
         {
             //open digits method
-            OpenDigitsEngine engine1 = new OpenDigitsEngine(field);
+            OpenDigitsEngine engine1 = new OpenDigitsEngine((Matrix)field);
             engine1.Start();
             if (correctSolution())
             {
@@ -40,7 +42,7 @@ namespace SudoSolO
             //hidden digits method
 
             //backtracking method
-            BacktrackingEngine engine3 = new BacktrackingEngine(field);
+            BacktrackingEngine engine3 = new BacktrackingEngine((Matrix)field);
             engine3.Start();
             if (correctSolution())
             {
