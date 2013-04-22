@@ -48,7 +48,7 @@ namespace SudoSolO
             {
                 try
                 {
-                    imageReceiver = new ImageReceiver(cselect.camNumber);
+                    imageReceiver = ImageReceiver.GetInstanceOnCamNumber(cselect.camNumber);
                 }
                 catch (NullReferenceException exception)
                 {
@@ -86,7 +86,9 @@ namespace SudoSolO
         //CAPTURE   
         private void button1_Click(object sender, EventArgs e)
         {
-            bmpPicture = imageReceiver.GetImage();
+            Stack<ImageMemento> imageSaves = new Stack<ImageMemento>();
+            imageSaves.Push(imageReceiver.SaveImageState());
+            bmpPicture = imageSaves.Pop().GetState();
             pictureBox2.Visible = true;
             bmpPicture.Save("c:/file.bmp");
             button2.Enabled = true;

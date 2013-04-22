@@ -11,13 +11,37 @@ using Emgu.CV.Structure;
 
 namespace SudoSolO
 {
+    //Singleton
     class ImageReceiver
     {
+        private static ImageReceiver _instance;
+        public static ImageReceiver GetInstance()
+        {
+            if (_instance != null)
+            {
+                return _instance;
+            }
+            else
+            {
+                throw new NullReferenceException("There is no image receiver instance");
+            }
+        }
+
+        //on first use
+        public static ImageReceiver GetInstanceOnCamNumber(int camNumber)
+        {
+            if (_instance == null)
+            {
+                _instance = new ImageReceiver(camNumber);
+            }
+            return _instance;
+        }
+
         private Capture capture;
         private ImageViewer viewer;
         private Image<Bgr, Byte> img;
-
-        public ImageReceiver(int camNumber)
+        
+        protected ImageReceiver(int camNumber)
         {
             viewer  = new ImageViewer();
             capture = new Capture(camNumber);
@@ -33,8 +57,13 @@ namespace SudoSolO
             viewer.Image = capture.QueryFrame();
             img = (Image<Bgr, Byte>)viewer.Image;
             img = img.Rotate(Config.Angle, new Bgr(255, 255, 255), false);
-            img.ROI = Config.Rect; 
+            img.ROI = Config.Rect;
             return img.ToBitmap();
+        }
+
+        public ImageMemento SaveImageState()
+        {
+            return new ImageMemento(this.GetImage());
         }
     }
 }
