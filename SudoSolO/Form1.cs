@@ -27,7 +27,7 @@ namespace SudoSolO
         private Bitmap bmpPicture;
 
         ImageReceiver imageReceiver;
-        Manipulator manipulator;
+        ManipulatorFacade manipulatorFacade;
 
         public Form1()
         {
@@ -67,7 +67,7 @@ namespace SudoSolO
             dresult = cmselect.ShowDialog();
             if (dresult == DialogResult.OK)
             {
-                manipulator = new Manipulator(cmselect.portName);
+                manipulatorFacade = new ManipulatorFacade(cmselect.portName);
             }
             else
             {
@@ -157,45 +157,45 @@ namespace SudoSolO
         //control section
         private void button5_Click(object sender, EventArgs e)
         {
-            manipulator.Send("f");
+            manipulatorFacade.LeftSoft();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            manipulator.Send("k");
+            manipulatorFacade.RightSoft();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            manipulator.Send("u");
+            manipulatorFacade.Up();
 
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            manipulator.Send("l");
+            manipulatorFacade.Left();
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            manipulator.Send("r");
+            manipulatorFacade.Right();
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-            manipulator.Send("d");
+            manipulatorFacade.Down();
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            manipulator.Upload(gameField);
+            manipulatorFacade.UploadGameField(gameField);
         }
 
         private void FlashLighter_DoWork(object sender, DoWorkEventArgs e)
         {
             for (int i = 0; i < Config.AwakePress; i++)
             {
-                manipulator.Send("0");
+                manipulatorFacade.TurnOnFlashLight();
                 Thread.Sleep(278);
             }
         }
