@@ -57,8 +57,13 @@ namespace SudoSolO
             viewer.Image = capture.QueryFrame();
             img = (Image<Bgr, Byte>)viewer.Image;
             img = img.Rotate(Config.Angle, new Bgr(255, 255, 255), false);
-            img.ROI = Config.Rect; 
+            img.ROI = Config.Rect;
             return img.ToBitmap();
+        }
+
+        public ImageMemento SaveImageState()
+        {
+            return new ImageMemento(this.GetImage());
         }
     }
 }
