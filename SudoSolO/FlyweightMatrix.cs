@@ -12,6 +12,6 @@ namespace SudoSolO
         abstract public int[] GetRow(int row);
         abstract public int[] GetColumn(int column);
         abstract public int[] GetRegion(int row, int column);
-        //abstract public void SetField(int[,] array);
+        abstract public void SetField(int[,] array);
     }
 }

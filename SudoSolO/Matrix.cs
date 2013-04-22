@@ -7,7 +7,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace SudoSolO
 {
     [Serializable]
-    class Matrix
+    class Matrix: FlyweightMatrix
     {
         private int [ , ] field;
         private int size;
@@ -45,7 +45,7 @@ namespace SudoSolO
             size = sz;
             field = array;
         }
-
+        public void SetField (int[,] array) { field = array;}
         //indexer
         public int this[int row, int column]
         {
