@@ -8,6 +8,6 @@ namespace SudoSolO
 {
     abstract class SolvingStrategy
     {
-        public void SolvingAlgorithm(Matrix field);
+        public abstract void SolvingAlgorithm(Matrix field);
     }
 }

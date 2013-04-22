@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BacktrackingAlgorithm.cs" />
     <Compile Include="BacktrackingEngine.cs" />
     <Compile Include="CameraSelection.cs">
       <SubType>Form</SubType>
@@ -85,6 +86,7 @@
     <Compile Include="Manipulator.cs" />
     <Compile Include="ManipulatorFacade.cs" />
     <Compile Include="Matrix.cs" />
+    <Compile Include="OpenDigitsAlgorithm.cs" />
     <Compile Include="OpenDigitsEngine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Progress.cs">
@@ -102,6 +104,7 @@
     </Compile>
     <Compile Include="Recognizer.cs" />
     <Compile Include="Solver.cs" />
+    <Compile Include="SolvingStrategy.cs" />
     <Compile Include="Structures.cs" />
     <EmbeddedResource Include="CameraSelection.resx">
       <DependentUpon>CameraSelection.cs</DependentUpon>

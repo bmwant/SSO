@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SudoSolO
 {
-    class BacktrackingAlgorithm:SolvingStrategy
+    class BacktrackingAlgorithm: SolvingStrategy
     {
         public override void SolvingAlgorithm(Matrix field)
         {

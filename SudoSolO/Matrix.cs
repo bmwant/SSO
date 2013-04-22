@@ -10,7 +10,7 @@ namespace SudoSolO
     class Matrix: FlyweightMatrix
     {
         private int [ , ] field;
-        private int size;
+        private new int size;
 
         public Matrix()
         { 
@@ -45,7 +45,7 @@ namespace SudoSolO
             size = sz;
             field = array;
         }
-        public void SetField (int[,] array) { field = array;}
+        public override void SetField (int[,] array) { field = array;}
         //indexer
         public int this[int row, int column]
         {
@@ -74,7 +74,7 @@ namespace SudoSolO
             }
         }
 
-        public int[] GetRow(int row)
+        public override int[] GetRow(int row)
         {
             if (row < 0 || row >= size)
             {
@@ -88,7 +88,7 @@ namespace SudoSolO
             return arr;
         }
 
-        public int[] GetColumn(int column)
+        public override int[] GetColumn(int column)
         {
             if (column < 0 || column >= size)
             {
@@ -102,7 +102,7 @@ namespace SudoSolO
             return arr;
         }
 
-        public int[] GetRegion(int row, int column)
+        public override int[] GetRegion(int row, int column)
         {
             if (row < 0 || row >= size || column < 0 || column >= size)
             {
