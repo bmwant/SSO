@@ -25,6 +25,7 @@ namespace SudoSolO
         private int[,] tempMatrix;
         private Matrix gameField;
         private Bitmap bmpPicture;
+        private int cameraId;
 
         ImageReceiver imageReceiver;
         ManipulatorFacade manipulatorFacade;
@@ -48,7 +49,8 @@ namespace SudoSolO
             {
                 try
                 {
-                    imageReceiver = ImageReceiver.GetInstanceOnCamNumber(cselect.camNumber);
+                    cameraId = cselect.camNumber;
+                    imageReceiver = ImageReceiver.GetInstanceOnCamNumber(cameraId);
                 }
                 catch (NullReferenceException exception)
                 {
@@ -77,9 +79,11 @@ namespace SudoSolO
 
         private void getStreamVideoFromWebCam()
         {
+            //Get image from web-cam only if proxy ensures that there is appropriate
+            ImageReceiverProxy imgReceiver = new ImageReceiverProxy(cameraId);
             Application.Idle += new EventHandler(delegate(object sender, EventArgs e)
             {
-                pictureBox7.Image = imageReceiver.GetImage();
+                pictureBox7.Image = imgReceiver.GetProxiedImage();
             });
         }
         
@@ -103,17 +107,17 @@ namespace SudoSolO
         {
             
             this.Cursor = Cursors.WaitCursor;
-                Recognizer recognizer = new Recognizer();
-                ImageProcessor imageProcessor = new ImageProcessor(boardSize);
-                List<Bitmap> digits = imageProcessor.Process(bmpPicture, Config.MinGray);
-                for (int i = 0; i < boardSize; i++)
+            Recognizer recognizer = new Recognizer();
+            ImageProcessor imageProcessor = new ImageProcessor(boardSize);
+            List<Bitmap> digits = imageProcessor.Process(bmpPicture, Config.MinGray);
+            for (int i = 0; i < boardSize; i++)
+            {
+                for (int j = 0; j < boardSize; j++)
                 {
-                    for (int j = 0; j < boardSize; j++)
-                    {
-                        if(tempMatrix[i, j] == 0)
-                            tempMatrix[i, j] = recognizer.Recognize(digits[i * boardSize + j]);
-                    }
+                    if(tempMatrix[i, j] == 0)
+                        tempMatrix[i, j] = recognizer.Recognize(digits[i * boardSize + j]);
                 }
+            }
 
             this.Cursor = Cursors.Arrow;
             //after successful recognition turn on LED light on phone

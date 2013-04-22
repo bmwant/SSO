@@ -17,14 +17,7 @@ namespace SudoSolO
         private static ImageReceiver _instance;
         public static ImageReceiver GetInstance()
         {
-            if (_instance != null)
-            {
                 return _instance;
-            }
-            else
-            {
-                throw new NullReferenceException("There is no image receiver instance");
-            }
         }
 
         //on first use
