@@ -16,7 +16,7 @@ namespace SudoSolO
         { 
         
         }
-
+        //sdfgsdfg
         //creates an empty size x size matrix
         public Matrix(int _size)
         {
@@ -128,7 +128,7 @@ namespace SudoSolO
             }
             return arr;
         }
-        //asdfsadfasdf
+
         public override string ToString()
         {
             string str = "";
