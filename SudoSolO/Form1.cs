@@ -21,17 +21,16 @@ namespace SudoSolO
 {
     public partial class Form1 : Form
     {
-        private int boardSize;
-        private int[,] tempMatrix;
-        private Matrix gameField;
-        private Bitmap bmpPicture;
+        
         ManipulatorFacade manipulatorFacade;
+        Handler startingHandler;
+        Handler recognitionHandler;
+        Handler solvingHandler;
+        Handler uploadingHandler;
 
         public Form1()
         {
             InitializeComponent();
-            boardSize = 6;
-            tempMatrix = new int[boardSize, boardSize];
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -39,16 +38,28 @@ namespace SudoSolO
             //turn on the lights
             FlashLighter.RunWorkerAsync();
 
+            //Create a chain of responsibility for process
+            startingHandler = new CaptureHandler();
+            recognitionHandler = new RecognizingHandler();
+            solvingHandler = new SolvingHandler();
+            uploadingHandler = new UploadingHandler();
+
+            //Set chain sequence
+            startingHandler.SetSuccessor(recognitionHandler);
+            recognitionHandler.SetSuccessor(solvingHandler);
+            solvingHandler.SetSuccessor(uploadingHandler);
+
             Handler webCameraHandler = new CaptureHandler();
-            webCameraHandler.HandleRequest(State.NONE);
+            webCameraHandler.HandleRequest(null, State.NONE);
             getStreamVideoFromWebCam();
 
-            //select COM-port for phone manipulation
+            //select COM-port for real time phone manipulation
             COMSelection cmselect = new COMSelection();
             DialogResult dresult = cmselect.ShowDialog();
             if (dresult == DialogResult.OK)
             {
                 manipulatorFacade = new ManipulatorFacade(cmselect.portName);
+                Config.COMPort = cmselect.portName;
             }
             else
             {
@@ -69,10 +80,7 @@ namespace SudoSolO
         //CAPTURE   
         private void button1_Click(object sender, EventArgs e)
         {
-            Handler newCameraHandler = new CaptureHandler();
-            newCameraHandler.HandleRequest(State.INITIALIZED);
-
-            //bmpPicture.Save("c:/file.bmp");
+            startingHandler.HandleRequest(null, State.INITIALIZED);
             button2.Enabled = true;
             pictureBox2.Visible = true;
             pictureBox1.Visible = false;
@@ -86,56 +94,24 @@ namespace SudoSolO
         {
             
             this.Cursor = Cursors.WaitCursor;
-            AbstractRecognitionFactory factory = new IntRecognition();
-            Recognizer recognizer = factory.CreateSudokuRecognizer();
-            ImageProcessor imageProcessor = new ImageProcessor(boardSize);
 
-
-            List<Bitmap> digits = imageProcessor.Process(bmpPicture, Config.MinGray);
-            BitmapCollection bitmapDigits = new BitmapCollection();
-            for (int i = 0; i < boardSize * boardSize; i++)
-            {
-                bitmapDigits[i] = digits[i];
-            }
-
-            BitmapIterator bitIter = new BitmapIterator(bitmapDigits);
-            int k = 0;
-            for (Bitmap item = bitIter.First(); !bitIter.IsDone; item = bitIter.Next(), k++)
-            {
-                int i = k / boardSize;
-                int j = k % boardSize;
-                if (tempMatrix[i, j] == 0)
-                {
-                    tempMatrix[i, j] = recognizer.Recognize(item);
-                }
-            }
-
+            startingHandler.HandleRequest(null, State.CAPTURED);
+            
             this.Cursor = Cursors.Arrow;
             //after successful recognition turn on LED light on phone
             if (!FlashLighter.IsBusy)
                 FlashLighter.RunWorkerAsync();
 
-            //check and correct recognized digits
-            RecognitionAccepter ra = new RecognitionAccepter(boardSize);
-            ra.ShowDialog();
-
-            //creates game field from recognized digits
-            gameField = new Matrix(boardSize, ra.field);
-
             pictureBox6.Visible = true;
             button3.Enabled = true;
-            //RecognitionWorker.RunWorkerAsync();
         }
 
         //SOLVE
         private void button3_Click(object sender, EventArgs e)
         {
-            Solver solver = new Solver(gameField);
+            startingHandler.HandleRequest(null, State.RECOGNIZED);
+            pictureBox5.Visible = true;
 
-            if (solver.Solve())
-            {
-                pictureBox5.Visible = true;
-            }
             //turn on the lights
             if (!FlashLighter.IsBusy)
                 FlashLighter.RunWorkerAsync();
@@ -146,9 +122,8 @@ namespace SudoSolO
         private void button4_Click(object sender, EventArgs e)
         {
             FlashLighter.CancelAsync();
-            Uploader.RunWorkerAsync();
+            startingHandler.HandleRequest(null, State.SOLVED);
             pictureBox1.Visible = true;
-            
         }
 
         //control section
@@ -183,11 +158,7 @@ namespace SudoSolO
             manipulatorFacade.Down();
         }
 
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-            manipulatorFacade.UploadGameField(gameField);
-        }
-
+        
         private void FlashLighter_DoWork(object sender, DoWorkEventArgs e)
         {
             for (int i = 0; i < Config.AwakePress; i++)
@@ -195,31 +166,6 @@ namespace SudoSolO
                 manipulatorFacade.TurnOnFlashLight();
                 Thread.Sleep(278);
             }
-        }
-
-        private void RecognitionWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            
-        }
-
-        private void RecognitionWorker_DoWork(object sender, DoWorkEventArgs e)
-        {
-            //prg = new Progress();
-            //prg.ShowDialog();
-        }
-
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-            button1.Enabled = false;
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            DialogResult result = openFileDialog1.ShowDialog();
-            if (result == DialogResult.OK) // Test result.
-            {
-                bmpPicture = new Bitmap(openFileDialog1.FileName);
-            }
-            pictureBox2.Image = bmpPicture;
-            button2.Enabled = true;
         }
     }
 }

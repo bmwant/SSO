@@ -20,6 +20,8 @@ namespace SudoSolO
         public static int AwakePress = 13;
         public static int Size = 6;
 
+        public static string COMPort {get; set;}
+
         static Config()
         {
             Rect = new Rectangle(18, 0, ImageSize, ImageSize);

@@ -14,7 +14,7 @@ namespace SudoSolO
         ImageReceiver imageReceiver;
         Bitmap bmpPicture;
 
-        public override void HandleRequest(State request)
+        public override void HandleRequest(Object subj, State request)
         {
             if (request == State.NONE)
             {
@@ -49,7 +49,7 @@ namespace SudoSolO
             }
             else if (successor != null)
             {
-                //successor.HandleRequest(bmpPicture, State.CAPTURED);
+                successor.HandleRequest(bmpPicture, State.CAPTURED);
             }
         }
 

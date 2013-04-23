@@ -169,7 +169,6 @@
             // 
             // Uploader
             // 
-            this.Uploader.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
             // FlashLighter
             // 
@@ -178,10 +177,7 @@
             // 
             // RecognitionWorker
             // 
-            this.RecognitionWorker.WorkerReportsProgress = true;
-            this.RecognitionWorker.WorkerSupportsCancellation = true;
-            this.RecognitionWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.RecognitionWorker_DoWork);
-            this.RecognitionWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.RecognitionWorker_RunWorkerCompleted);
+
             // 
             // pictureBox1
             // 

@@ -113,10 +113,13 @@
       <DependentUpon>RecognitionAccepter.cs</DependentUpon>
     </Compile>
     <Compile Include="Recognizer.cs" />
+    <Compile Include="RecognizingHandler.cs" />
     <Compile Include="Solver.cs" />
+    <Compile Include="SolvingHandler.cs" />
     <Compile Include="SolvingStrategy.cs" />
     <Compile Include="Structures.cs" />
     <Compile Include="TicTacToeRecognizer.cs" />
+    <Compile Include="UploadingHandler.cs" />
     <EmbeddedResource Include="CameraSelection.resx">
       <DependentUpon>CameraSelection.cs</DependentUpon>
     </EmbeddedResource>

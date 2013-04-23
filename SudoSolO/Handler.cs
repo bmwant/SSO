@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SudoSolO
 {
-    enum State { NONE, INITIALIZED, CAPTURED, RECNIZED, SOLVED };
+    enum State { NONE, INITIALIZED, CAPTURED, RECOGNIZED, SOLVED };
     abstract class Handler
     {
         protected Handler successor;
@@ -15,6 +15,6 @@ namespace SudoSolO
             this.successor = successor;
         }
 
-        public abstract void HandleRequest(State request);
+        public abstract void HandleRequest(Object subject, State request);
     }
 }
