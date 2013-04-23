@@ -67,6 +67,7 @@
     <Compile Include="CameraSelection.Designer.cs">
       <DependentUpon>CameraSelection.cs</DependentUpon>
     </Compile>
+    <Compile Include="CaptureHandler.cs" />
     <Compile Include="COMSelection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +84,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Handler.cs" />
     <Compile Include="IAbstractCollection.cs" />
     <Compile Include="IAbstractIterator.cs" />
     <Compile Include="ImageBuilder.cs" />

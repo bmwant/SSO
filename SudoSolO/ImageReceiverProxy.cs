@@ -12,9 +12,9 @@ namespace SudoSolO
     {
         private ImageReceiver imgReceiver;
 
-        public ImageReceiverProxy(int camNumber)
+        public ImageReceiverProxy()
         {
-            imgReceiver = ImageReceiver.GetInstanceOnCamNumber(camNumber);
+            imgReceiver = ImageReceiver.GetInstance();
         }
 
         private void EnsureConnectedWebCam()

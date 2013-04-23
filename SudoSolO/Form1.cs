@@ -25,9 +25,6 @@ namespace SudoSolO
         private int[,] tempMatrix;
         private Matrix gameField;
         private Bitmap bmpPicture;
-        private int cameraId;
-
-        ImageReceiver imageReceiver;
         ManipulatorFacade manipulatorFacade;
 
         public Form1()
@@ -42,31 +39,13 @@ namespace SudoSolO
             //turn on the lights
             FlashLighter.RunWorkerAsync();
 
-            //select camera to get real-time image from phone display
-            CameraSelection cselect = new CameraSelection();
-            DialogResult dresult = cselect.ShowDialog();
-            if (dresult == DialogResult.OK)
-            {
-                try
-                {
-                    cameraId = cselect.camNumber;
-                    imageReceiver = ImageReceiver.GetInstanceOnCamNumber(cameraId);
-                }
-                catch (NullReferenceException exception)
-                {
-                    MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.Close();
-                }
-                getStreamVideoFromWebCam();
-            }
-            else
-            {
-                this.Close();
-            }
+            Handler webCameraHandler = new CaptureHandler();
+            webCameraHandler.HandleRequest(State.NONE);
+            getStreamVideoFromWebCam();
 
             //select COM-port for phone manipulation
             COMSelection cmselect = new COMSelection();
-            dresult = cmselect.ShowDialog();
+            DialogResult dresult = cmselect.ShowDialog();
             if (dresult == DialogResult.OK)
             {
                 manipulatorFacade = new ManipulatorFacade(cmselect.portName);
@@ -80,7 +59,7 @@ namespace SudoSolO
         private void getStreamVideoFromWebCam()
         {
             //Get image from web-cam only if proxy ensures that there is appropriate
-            ImageReceiverProxy imgReceiver = new ImageReceiverProxy(cameraId);
+            ImageReceiverProxy imgReceiver = new ImageReceiverProxy();
             Application.Idle += new EventHandler(delegate(object sender, EventArgs e)
             {
                 pictureBox7.Image = imgReceiver.GetProxiedImage();
@@ -90,12 +69,12 @@ namespace SudoSolO
         //CAPTURE   
         private void button1_Click(object sender, EventArgs e)
         {
-            Stack<ImageMemento> imageSaves = new Stack<ImageMemento>();
-            imageSaves.Push(imageReceiver.SaveImageState());
-            bmpPicture = imageSaves.Pop().GetState();
-            pictureBox2.Visible = true;
-            bmpPicture.Save("c:/file.bmp");
+            Handler newCameraHandler = new CaptureHandler();
+            newCameraHandler.HandleRequest(State.INITIALIZED);
+
+            //bmpPicture.Save("c:/file.bmp");
             button2.Enabled = true;
+            pictureBox2.Visible = true;
             pictureBox1.Visible = false;
             pictureBox5.Visible = false;
             pictureBox6.Visible = false;
