@@ -107,15 +107,27 @@ namespace SudoSolO
         {
             
             this.Cursor = Cursors.WaitCursor;
-            Recognizer recognizer = new Recognizer();
+            AbstractRecognitionFactory factory = new IntRecognition();
+            Recognizer recognizer = factory.CreateSudokuRecognizer();
             ImageProcessor imageProcessor = new ImageProcessor(boardSize);
+
+
             List<Bitmap> digits = imageProcessor.Process(bmpPicture, Config.MinGray);
-            for (int i = 0; i < boardSize; i++)
+            BitmapCollection bitmapDigits = new BitmapCollection();
+            for (int i = 0; i < boardSize * boardSize; i++)
             {
-                for (int j = 0; j < boardSize; j++)
+                bitmapDigits[i] = digits[i];
+            }
+
+            BitmapIterator bitIter = new BitmapIterator(bitmapDigits);
+            int k = 0;
+            for (Bitmap item = bitIter.First(); !bitIter.IsDone; item = bitIter.Next(), k++)
+            {
+                int i = k / boardSize;
+                int j = k % boardSize;
+                if (tempMatrix[i, j] == 0)
                 {
-                    if(tempMatrix[i, j] == 0)
-                        tempMatrix[i, j] = recognizer.Recognize(digits[i * boardSize + j]);
+                    tempMatrix[i, j] = recognizer.Recognize(item);
                 }
             }
 

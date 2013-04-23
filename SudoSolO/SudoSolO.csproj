@@ -56,8 +56,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractRecognitionFactory.cs" />
     <Compile Include="BacktrackingAlgorithm.cs" />
     <Compile Include="BacktrackingEngine.cs" />
+    <Compile Include="BitmapCollection.cs" />
+    <Compile Include="BitmapIterator.cs" />
     <Compile Include="CameraSelection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,11 +83,14 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="IAbstractCollection.cs" />
+    <Compile Include="IAbstractIterator.cs" />
     <Compile Include="ImageBuilder.cs" />
     <Compile Include="ImageMemento.cs" />
     <Compile Include="ImageProcessor.cs" />
     <Compile Include="ImageReceiver.cs" />
     <Compile Include="ImageReceiverProxy.cs" />
+    <Compile Include="IntRecognition.cs" />
     <Compile Include="Manipulator.cs" />
     <Compile Include="ManipulatorFacade.cs" />
     <Compile Include="Matrix.cs" />
@@ -108,6 +114,7 @@
     <Compile Include="Solver.cs" />
     <Compile Include="SolvingStrategy.cs" />
     <Compile Include="Structures.cs" />
+    <Compile Include="TicTacToeRecognizer.cs" />
     <EmbeddedResource Include="CameraSelection.resx">
       <DependentUpon>CameraSelection.cs</DependentUpon>
     </EmbeddedResource>
