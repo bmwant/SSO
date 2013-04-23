@@ -70,6 +70,7 @@
     <Compile Include="COMSelection.Designer.cs">
       <DependentUpon>COMSelection.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConcreteImageFromSizeBuilder.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="FlyweightFactoryMatrix.cs" />
     <Compile Include="FlyweightMatrix.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImageBuilder.cs" />
     <Compile Include="ImageMemento.cs" />
     <Compile Include="ImageProcessor.cs" />
     <Compile Include="ImageReceiver.cs" />
