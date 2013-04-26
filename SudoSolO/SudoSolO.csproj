@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractRecognitionFactory.cs" />
+    <Compile Include="AdvancedConfig.cs" />
     <Compile Include="BacktrackingAlgorithm.cs" />
     <Compile Include="BacktrackingEngine.cs" />
     <Compile Include="BitmapCollection.cs" />
@@ -76,6 +77,7 @@
     </Compile>
     <Compile Include="ConcreteImageFromSizeBuilder.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="Decorator.cs" />
     <Compile Include="FlyweightFactoryMatrix.cs" />
     <Compile Include="FlyweightMatrix.cs" />
     <Compile Include="Form1.cs">
@@ -145,6 +147,9 @@
     <EmbeddedResource Include="RecognitionAccepter.resx">
       <DependentUpon>RecognitionAccepter.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagram3.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

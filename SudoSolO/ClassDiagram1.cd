@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SudoSolO.AbstractRecognitionFactory">
+    <Position X="10.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AbstractRecognitionFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudoSolO.BacktrackingAlgorithm">
+    <Position X="0.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BacktrackingAlgorithm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudoSolO.BacktrackingEngine">
+    <Position X="0.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CBCAAAAAACAAAAAAAIAAAAAAAAAAAAQAAAAACAAAAAA=</HashCode>
+      <FileName>BacktrackingEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudoSolO.BitmapCollection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACCAAAAAQAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BitmapCollection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SudoSolO.BitmapIterator" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAICAAAAAAAUAAAAAAAAAAAABAAAAAIAAABAAAAAA=</HashCode>
+      <FileName>BitmapIterator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SudoSolO.CameraSelection" Collapsed="true">
+    <Position X="0.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAACAgABAQAACAAAACAAIIAAAAAEAEAAAAAAA=</HashCode>
+      <FileName>CameraSelection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudoSolO.CaptureHandler">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAQAAQAAAAACAAAAAAAAA=</HashCode>
+      <FileName>CaptureHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudoSolO.COMSelection" Collapsed="true">
+    <Position X="0.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAACAgABAQAACAAAACAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>COMSelection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudoSolO.ConcreteImageFromSizeBuilder">
+    <Position X="6.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAIAFAAAAAAAAAAIAgAAAEAAAAAAAAA=</HashCode>
+      <FileName>ConcreteImageFromSizeBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudoSolO.FlyweightFactoryMatrix">
+    <Position X="10.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>FlyweightFactoryMatrix.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudoSolO.FlyweightMatrix">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAgAAAAAACAAAIAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FlyweightMatrix.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudoSolO.Form1" Collapsed="true">
+    <Position X="0.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gCBAIAIAACgAEQAAEACAQAASAMw7AAAgwHQPAQBAQAg=</HashCode>
+      <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudoSolO.Handler">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAFAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Handler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudoSolO.ImageBuilder">
+    <Position X="4.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAEAAAAAAAAAAAAgAAAEAAAAAAAAA=</HashCode>
+      <FileName>ImageBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudoSolO.ImageMemento">
+    <Position X="20.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>ImageMemento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudoSolO.ImageProcessor">
+    <Position X="11.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAoAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ImageProcessor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudoSolO.ImageReceiver">
+    <Position X="16" Y="6.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAEAAAAAAAABCQBAAAEAAAAAAAAgAQAAA=</HashCode>
+      <FileName>ImageReceiver.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="imgReceiver" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SudoSolO.ImageReceiverProxy">
+    <Position X="18.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>ImageReceiverProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudoSolO.IntRecognition">
+    <Position X="9" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IntRecognition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudoSolO.Manipulator">
+    <Position X="19.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAgAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Manipulator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudoSolO.ManipulatorFacade">
+    <Position X="17.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAICAIAAAAMAAAAAAAAAAAAAAAAAAAACACAAAAAAAY=</HashCode>
+      <FileName>ManipulatorFacade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudoSolO.Matrix">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAQAgAAAAAgCAECIAAACAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Matrix.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudoSolO.OpenDigitsAlgorithm">
+    <Position X="2.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OpenDigitsAlgorithm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudoSolO.OpenDigitsEngine">
+    <Position X="2.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gECAAAAAACAAAAAAAIAAAACQgAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OpenDigitsEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudoSolO.Program" Collapsed="true">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudoSolO.Recognizer">
+    <Position X="9.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQABAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Recognizer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudoSolO.RecognizingHandler">
+    <Position X="5.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAQAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>RecognizingHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudoSolO.Solver">
+    <Position X="15.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAEAAAAAEIIAAAAAYgAABCAAACAAAACAAAAA=</HashCode>
+      <FileName>Solver.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudoSolO.SolvingHandler">
+    <Position X="8.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>SolvingHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudoSolO.SolvingStrategy">
+    <Position X="1.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SolvingStrategy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudoSolO.UploadingHandler">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEABAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>UploadingHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="SudoSolO.IAbstractCollection" Collapsed="true">
+    <Position X="5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IAbstractCollection.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SudoSolO.IAbstractIterator" Collapsed="true">
+    <Position X="6.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAACAAAAAAAQAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IAbstractIterator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

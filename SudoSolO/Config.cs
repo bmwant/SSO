@@ -10,7 +10,7 @@ namespace SudoSolO
     class Config
     {
         public static double Angle = 0;
-        public static Rectangle Rect;
+        public static Rectangle Rect = new Rectangle(18, 0, ImageSize, ImageSize);
         public static int PicSize = 40;
         public static int Epsilon = 8;
         public static int MinGray = 41;
@@ -22,9 +22,12 @@ namespace SudoSolO
 
         public static string COMPort {get; set;}
 
-        static Config()
+        protected int _minGray;
+        protected int _maxGray;
+        public virtual void SetGray(int min, int max)
         {
-            Rect = new Rectangle(18, 0, ImageSize, ImageSize);
+            _minGray = min;
+            _maxGray = max;
         }
     }
 }

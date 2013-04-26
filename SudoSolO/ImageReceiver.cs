@@ -58,5 +58,16 @@ namespace SudoSolO
         {
             return new ImageMemento(this.GetImage());
         }
+
+        internal ImageReceiverProxy imgReceiver
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
     }
 }

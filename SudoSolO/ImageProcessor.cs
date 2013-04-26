@@ -22,7 +22,12 @@ namespace SudoSolO
         }
 
         public List<Bitmap> Process(Bitmap bmp, int val)
-        { 
+        {
+            Config config = new Config();
+            Decorator newConfig = new AdvancedConfig();
+            newConfig.SetConfig(config);
+            newConfig.SetGray(val, val + bmp.Size.Width);
+
             for (int i = 0; i < size; i++)
             {
                 for (int j = 0; j < size; j++)

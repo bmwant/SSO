@@ -14,6 +14,8 @@ namespace SudoSolO
         }
         public override TicTacToeRecognizer CreateTicTacToeRecognizer()
         {
-            return new TicTacToeRecognizer();        }
+            return new TicTacToeRecognizer();
+        }
+
     }
 }
